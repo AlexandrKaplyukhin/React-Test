@@ -1,0 +1,11 @@
+.nav{
+    grid-area: n;
+    background-color: azure;
+    }
+    
+.item{
+    color:green;
+}
+.active{
+    font-weight: bold;
+}
