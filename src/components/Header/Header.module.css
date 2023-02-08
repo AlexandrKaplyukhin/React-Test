@@ -1,6 +1,9 @@
 .header{
     grid-area: h;
-    background-color: rgb(77, 77, 143);
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(69, 147, 97);
     }
     
     .header img {
