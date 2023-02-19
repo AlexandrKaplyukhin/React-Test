@@ -1,9 +1,31 @@
 
-   .item{
-    color:red;
-   } 
+.item {
+    display: grid;
+    grid-template-columns: 10% 70% 15%;
+    padding: 2%;
+    margin-bottom: 1%;
+}
 
-   .item img {
-    width: 40px;
+.item img {
+    width: 70%;
     border-radius: 4px;
-   }
+}
+
+.divMessage{
+    background-color: #8adca1;
+    display: grid;
+    align-items: center;
+    justify-items: left;
+    padding: 3%;
+    border-radius: 1em;
+}
+.divLike{
+    background-color: #8adca1;
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    padding: 3%;
+    border-radius: 1em;
+    margin: 0 3% 0 30%;
+}

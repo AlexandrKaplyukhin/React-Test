@@ -1,6 +1,53 @@
-.postBlock{
+.postBlock {
+    background-color: #ffffff;
+    margin: 3%;
+    border-radius: 1em;
+    padding: 0.5% 0 0.5% 0;
+}
+
+.posts {
+    margin: 2% 5% 0 5%;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 1fr;
+    background-color: #b2b2b2;
+    border-radius: 1em;
+    margin: 1% 3% 1% 3%;
+    padding: 1em 0 1em 0;
+
 
 }
-.posts {
-    margin: 10px;
+
+
+
+h2 {
+    text-align: center;
+}
+
+textarea {
+    border-radius: 1em;
+    margin: 0 1em 0 1em;
+    border: none;
+    outline: none;
+    font-size: larger;
+    padding: 2% 5%;
+
+}
+
+button {
+    border-radius: 1em;
+    border: none;
+    margin: 0 1em 0 1em;
+    font-size: larger;
+    font-weight: bold;
+    transition: 0.5s;
+
+}
+
+button:hover{
+    background-color: #8adca1;
+    transition: 0.5s;
 }

@@ -2,32 +2,34 @@ import React from "react";
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let posts = [
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-    ]
+    let postsElements = props.posts.map(p => <Post message={p.message} like={p.like}/>)
+    let newPostElement = React.createRef()
+    let addPost = () => {
+        //let text = newPostElement.current.value;
+        props.addPost();
+    }
 
-    let postsElements = posts.map( p => <Post message={p.message} like={p.like}/> )
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+
+        props.updateNewPostText(text)
+    }
+
+
+
     return (
 
         <div className={s.postBlock}>
-            My Post
+            <h2> My Post</h2>
             <div className={s.item}>
 
-                <textarea></textarea>
-                <br/>
-
-                <button>Add post</button>
+                <textarea onChange={onPostChange} ref={newPostElement} value={props.vtext} />
+                <button onClick={addPost}>Add post</button>
             </div>
             <div className={s.posts}>
+                <div></div>
                 {postsElements}
             </div>
 
