@@ -1,20 +1,22 @@
 import React from 'react';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import state, {addPost, sendMessage, updateNewMessageText, updateNewPostText} from "./redux/state";
 import App from "./App";
 import ReactDOM from "react-dom/client";
-import {subscribe} from "./redux/state";
+import store from "./redux/state";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 let rerender = (state) => {
     root.render(
-        <App state={state} addPost={addPost} sendMessage={sendMessage} updateNewMessageText={updateNewMessageText} updateNewPostText={updateNewPostText}/>
+        <App state={state}
+             dispatch={store.dispatch.bind(store)}
+        />
     );
 }
-rerender(state)
-subscribe(rerender);
+rerender(store.getState())
+store.subscribe(rerender);
+
 reportWebVitals();
 
-export default rerender;
+//export default rerender;

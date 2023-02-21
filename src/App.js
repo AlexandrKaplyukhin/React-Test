@@ -5,19 +5,9 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {sendMessage, updateNewMessageText, updateNewPostText} from "./redux/state";
 
 const App = (props) => {
-    /*let posts = [
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-        {id:0, message:'Hello', like:'15'},
-        {id:1, message:'Alex team', like:'20'},
-    ]*/
+
     return (
         <BrowserRouter>
 
@@ -27,9 +17,9 @@ const App = (props) => {
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path="/dialogs/*"
-                               element={<Dialogs state={props.state.dialogsPage} sendMessage={props.sendMessage} updateNewMessageText={props.updateNewMessageText}/>}/>
+                               element={<Dialogs state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
                         <Route path="/profile"
-                               element={<Profile addPost={props.addPost} updateNewPostText={props.updateNewPostText} profilePage={props.state.profilePage}/>}/>
+                               element={<Profile dispatch={props.dispatch}  profilePage={props.state.profilePage}/>}/>
                         <Route path="/news" element={'News'}/>
                         <Route path="/music" element={'Music'}/>
                         <Route path="/setting" element={'Setting'}/>
