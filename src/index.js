@@ -3,19 +3,23 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from "./App";
 import ReactDOM from "react-dom/client";
-import store from "./redux/state";
+import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let rerender = (state) => {
+let rerenderEntireTree = (state) => {
+    debugger;
     root.render(
         <App state={state}
              dispatch={store.dispatch.bind(store)} store={store}
         />
     );
 }
-rerender(store.getState())
-store.subscribe(rerender);
+rerenderEntireTree(store.getState())
+store.subscribe(() => {
+    let state = store.getState()
+    store.subscribe(state);
+})
 
 reportWebVitals();
 
